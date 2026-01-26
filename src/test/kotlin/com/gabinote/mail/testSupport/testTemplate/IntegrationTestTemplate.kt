@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.gabinote.mail.testSupport.testConfig.kafka.KafkaContainerInitializer
 import com.gabinote.mail.testSupport.testConfig.mailhog.MailHogContainerInitializer
 import com.gabinote.mail.testSupport.testUtil.kafka.TestKafkaHelper
+import com.gabinote.mail.testSupport.testUtil.mailHog.TestMailHogHelper
 import com.gabinote.mail.testSupport.testUtil.time.TestTimeProvider
 import com.gabinote.mail.testSupport.testUtil.uuid.TestUuidSource
 import io.kotest.core.spec.style.FeatureSpec
@@ -26,6 +27,7 @@ import org.testcontainers.junit.jupiter.Testcontainers
     TestUuidSource::class,
     TestTimeProvider::class,
     TestKafkaHelper::class,
+    TestMailHogHelper::class,
 
 )
 @Testcontainers
@@ -34,7 +36,8 @@ abstract class IntegrationTestTemplate : FeatureSpec() {
 
     @Autowired
     lateinit var objectMapper: ObjectMapper
-
+    @Autowired
+    lateinit var  testMailHogHelper: TestMailHogHelper
 
     @Autowired
     lateinit var testKafkaHelper: TestKafkaHelper

@@ -35,3 +35,10 @@ spring:
             required: false
 logging:
   config: classpath:logback-test.xml
+
+
+gabinote:
+  admin-email:
+    address: test@test.local
+  from:
+    address: no-reply@test.local

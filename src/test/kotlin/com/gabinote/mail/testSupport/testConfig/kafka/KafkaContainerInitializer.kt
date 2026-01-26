@@ -17,6 +17,7 @@ class KafkaContainerInitializer: ApplicationContextInitializer<ConfigurableAppli
             withNetwork(ContainerNetworkHelper.testNetwork)
             withNetworkAliases("kafka")
             withLabel("test-container", "kafka")
+            withReuse(true)
         }
     }
 

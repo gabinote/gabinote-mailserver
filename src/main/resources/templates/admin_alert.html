@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>관리자 알림</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f4f4f4; font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;">
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px; margin-top: 20px; background-color: #ffffff; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+
+    <tr>
+        <td align="center" style="background-color: #d9534f; padding: 15px; color: #ffffff;">
+            <h2 style="margin: 0; font-size: 20px;">🚨 시스템 관리자 알림</h2>
+        </td>
+    </tr>
+
+    <tr>
+        <td style="padding: 30px;">
+            <p style="margin: 0 0 20px 0; color: #666; font-size: 14px;">
+                다음 서비스에서 알림이 발생했습니다.
+            </p>
+
+            <table width="100%" cellpadding="15" cellspacing="0" style="background-color: #f8f9fa; border-left: 5px solid #d9534f; border-radius: 4px;">
+                <tr>
+                    <td width="80" style="font-weight: bold; color: #333; border-bottom: 1px solid #eee;">발생 서비스</td>
+                    <td style="color: #555; border-bottom: 1px solid #eee;">
+                        <span style="background-color: #333; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 12px;" th:text="${serviceName}">Unknown Service</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold; color: #333; vertical-align: top;">메시지</td>
+                    <td style="color: #444; font-size: 14px; line-height: 1.6;">
+                        <div style="white-space: pre-wrap; word-break: break-all;" th:text="${message}">
+
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <p style="text-align: right; margin-top: 15px; font-size: 12px; color: #999;">
+                Generated at: <span th:text="${#temporals.format(#temporals.createNow(), 'yyyy-MM-dd HH:mm:ss')}">2026-01-26 15:00:00</span>
+            </p>
+        </td>
+    </tr>
+
+    <tr>
+        <td align="center" style="background-color: #eeeeee; padding: 10px; font-size: 12px; color: #888;">
+            Gabinote Monitoring System
+        </td>
+    </tr>
+</table>
+</body>
+</html>

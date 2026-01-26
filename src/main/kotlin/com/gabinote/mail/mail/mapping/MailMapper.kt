@@ -1,6 +1,6 @@
 package com.gabinote.mail.mail.mapping
 
-import com.gabinote.mail.mail.dto.event.MailSendEvent
+import com.gabinote.mail.mail.dto.event.MailSendMessage
 import com.gabinote.mail.mail.dto.service.MailSendReqServiceDto
 import com.gabinote.mail.mail.enums.MailTemplate
 import com.gabinote.mail.mail.enums.MailType
@@ -11,7 +11,7 @@ import org.mapstruct.Mapper
 )
 interface MailMapper {
 
-    fun toEvent(dto: MailSendReqServiceDto,serviceName:String): MailSendEvent
+    fun toEvent(dto: MailSendReqServiceDto,serviceName:String): MailSendMessage
 
     fun typeToString(type: MailType): String {
         return type.value
