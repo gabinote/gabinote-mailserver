@@ -5,7 +5,9 @@ spring:
 
   main:
     allow-bean-definition-overriding: true
-
+  cloud:
+    config:
+      enabled: false
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
