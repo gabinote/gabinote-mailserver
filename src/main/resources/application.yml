@@ -3,4 +3,4 @@ spring:
     name: gabi-mail
 
   profiles:
-    active: local,test,prod
+    active: test,prod,preview

@@ -60,7 +60,26 @@ class TestKafkaHelper(
             logger.warn { "Topic $topicName might not exist or failed to delete: ${e.message}" }
         }
     }
+    fun sendMessage(topic: String, value: String) {
+        val producerConfig = Properties().apply {
+            put("bootstrap.servers", bootstrapServers)
+            put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer")
+            put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer")
+        }
 
+        val producer = KafkaProducer<String, String>(producerConfig)
+
+        val record = ProducerRecord<String, String>(topic, value)
+
+        try {
+            producer.send(record).get(5, TimeUnit.SECONDS)
+            logger.info { "Sent message to topic $topic" }
+        } catch (e: Exception) {
+            logger.error(e) { "Failed to send message to topic $topic" }
+        } finally {
+            producer.close()
+        }
+    }
     fun sendMessage(topic: String, key: String, value: String) {
         val producerConfig = Properties().apply {
             put("bootstrap.servers", bootstrapServers)

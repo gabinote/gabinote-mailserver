@@ -4,11 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-data class MailHogItem(
-    @JsonProperty("ID")
-    val ID: String,
-    @JsonProperty("Content")
-    val Content: MailContent,
-    @JsonProperty("Raw")
-    val Raw: MailRaw? = null
+data class MailRaw(
+    @JsonProperty("From")
+    val From: String? = null,
+    @JsonProperty("To")
+    val To: List<String>? = null,
+    @JsonProperty("Data")
+    val Data: String? = null
 )
+
